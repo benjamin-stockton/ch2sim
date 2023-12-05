@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+cd ..
+
+# echo "Running pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc1_cart_min2.R"
+# Rscript "pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc1_cart_min2.R"
+# echo "Running pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc2_cart_min2.R"
+# Rscript "pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc2_cart_min2.R"
+# echo "Running pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc3_cart_min2.R"
+# Rscript "pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc3_cart_min2.R"
+# echo "Running pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc4_cart_min2.R"
+# Rscript "pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc4_cart_min2.R"
+# echo "Running pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc5_cart_min2.R"
+# Rscript "pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc5_cart_min2.R"
+# echo "Running pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc6_cart_min2.R"
+# Rscript "pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc6_cart_min2.R"
+# echo "Running pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc7_cart_min2.R"
+# Rscript "pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc7_cart_min2.R"
+# echo "Running pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc8_cart_min2.R"
+# Rscript "pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc8_cart_min2.R"
+# echo "Running pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc9_cart_min2.R"
+# Rscript "pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc9_cart_min2.R"
+echo "Running pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc10_cart_min2.R"
+Rscript "pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc10_cart_min2.R"
+# echo "Running pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc11_cart_min2.R"
+# Rscript "pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc11_cart_min2.R"
+echo "Running pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc12_cart_min2.R"
+Rscript "pgms_simrun/mdsur_obs3r/mdsur_obs3r_sc12_cart_min2.R"
+
+echo "Done!"

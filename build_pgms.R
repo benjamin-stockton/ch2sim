@@ -29,6 +29,12 @@ purrr::pwalk(.l = setting.l,
                  sep='\n')
              })
 
+create_bash_scripts("pgms_simrun",
+                    script_base_name = "mdsur_obs3_sc%s_cart.R",
+                    sh_name = "mdsur_obs3_sc_cart.sh",
+                    setting.l = setting.l)
+
+
 ######################################################
 ## Subject level data is fully opbserved -CART min2 ##
 ######################################################
@@ -56,7 +62,10 @@ purrr::pwalk(.l = setting.l,
                  sep='\n')
              })
 
-
+create_bash_scripts("pgms_simrun",
+                    script_base_name = "mdsur_obs3_sc%s_cart_min2.R",
+                    sh_name = "mdsur_obs3_sc_cart_min2.sh",
+                    setting.l = setting.l)
 
 #################################################
 ## Subject level data is fully opbserved -NORM ##
@@ -85,7 +94,10 @@ purrr::pwalk(.l = setting.l,
                  sep='\n')
              })
 
-
+create_bash_scripts("pgms_simrun",
+                    script_base_name = "mdsur_obs3_sc%s_pnorm.R",
+                    sh_name = "mdsur_obs3_sc_pnorm.sh",
+                    setting.l = setting.l)
 
 
 ############################################################################
@@ -115,6 +127,11 @@ purrr::pwalk(.l = setting.l,
                  sep='\n')
              })
 
+create_bash_scripts("pgms_simrun/mdsur_obs3r",
+                    script_base_name = "mdsur_obs3r_sc%s_cart.R",
+                    sh_name = "mdsur_obs3r_sc_cart.sh",
+                    setting.l = setting.l)
+
 ###################################################################################
 ## Subject level data is fully opbserved random small subset of MDs - CART - min2##
 ###################################################################################
@@ -141,6 +158,11 @@ purrr::pwalk(.l = setting.l,
                  ),
                  sep='\n')
              })
+
+create_bash_scripts("pgms_simrun/mdsur_obs3r",
+                    script_base_name = "mdsur_obs3r_sc%s_cart_min2.R",
+                    sh_name = "mdsur_obs3r_sc_cart_min2.sh",
+                    setting.l = setting.l)
 
 ###########################################
 ## Subject level data MCAR - MI CART     ##
@@ -169,6 +191,11 @@ purrr::pwalk(.l = setting.l,
                  sep='\n')
              })
 
+create_bash_scripts("pgms_simrun/mcar",
+                    script_base_name = "mdsur_obs3_smcar_sc%s_cart.R",
+                    sh_name = "mdsur_obs3_smcar_sc_cart.sh",
+                    setting.l = setting.l)
+
 ############################################
 ## Subject level data MCAR - MI CART min2 ##
 ############################################
@@ -195,6 +222,11 @@ purrr::pwalk(.l = setting.l,
                  ),
                  sep='\n')
              })
+
+create_bash_scripts("pgms_simrun/mcar",
+                    script_base_name = "mdsur_obs3_smcar_sc%s_cart_min2.R",
+                    sh_name = "mdsur_obs3_smcar_sc_cart_min2.sh",
+                    setting.l = setting.l)
 
 ###########################################
 ## Subject level data MAR - MI CART      ##
@@ -223,6 +255,11 @@ purrr::pwalk(.l = setting.l,
                  sep='\n')
              })
 
+create_bash_scripts("pgms_simrun/mar",
+                    script_base_name = "mdsur_obs3_smar_sc%s_cart.R",
+                    sh_name = "mdsur_obs3_smar_sc_cart.sh",
+                    setting.l = setting.l)
+
 
 ###########################################
 ## Subject level data MAR - MI CART min2 ##
@@ -250,5 +287,10 @@ purrr::pwalk(.l = setting.l,
                  ),
                  sep='\n')
              })
+
+create_bash_scripts("pgms_simrun/mar",
+                    script_base_name = "mdsur_obs3_smar_sc%s_cart_min2.R",
+                    sh_name = "mdsur_obs3_smar_sc_cart_min2.sh",
+                    setting.l = setting.l)
 
 

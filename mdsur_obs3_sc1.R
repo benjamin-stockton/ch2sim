@@ -16,16 +16,16 @@ n_obs <- 250
 
 #rate of clinical experts opinios we observe
 obs_rate <- 0.03
-#parameters tbu in the clinical experts opinions model (to calculate probability to be non/observed) 
+#parameters tbu in the clinical experts opinions model (to calculate probability to be non/observed)
 b1 <- - 0.8
 xcov <- matrix(c(4^2, 4*0.05*cor_xl, 4*0.05*cor_xl, 0.05^2), 2, 2)
 
 
 
-x1 <- parallel::mclapply(X = 1:1000, 
+x1 <- parallel::mclapply(X = 1:1000,
                          mc.cores = 7,
-                         FUN= function(x){
-                           
+                         FUN= function(x){})
+
 #population of physicians consists of 1000 doctors
 set.seed(76423 + x)
 dt_pop0 <- mvrnorm(1000, mu = c(15, 0.7), Sigma = xcov)
@@ -54,7 +54,7 @@ while(length(dt_all$r[dt_all$r==0])<3){
                   pthresh = runif(n()),
                   r = ifelse(pmiss > pthresh, 1, 0))%>%
     dplyr::select(-c(pmiss, pthresh))
-  
+
 }
 #mean/sd lambda for the whole representitive sample of MDs
 mdsur_all <- dt_all%>%
@@ -69,15 +69,18 @@ mdsur_obs <- dt_all%>%
 dt_obs <- dt_all%>%
   dplyr::mutate(lambda = ifelse(r==0, lambda, NA))
 
-mdsur_mi <- m2_mi(dt_obs, num_m = 10)%>%
+mdsur_mi <- m2_mi(dt_obs, num_m = 5, mi_method = 'cart')%>%
   dplyr::rename(mean_l = qbar)%>%
-  dplyr::mutate(sd_l = sqrt(t))%>%
-  dplyr::select(mean_l, sd_l, n_l)
+  dplyr::mutate(sd_l = sqrt(t), se_l = sd_l)
 
 mdsur_sing <- dt_all%>%
   dplyr::sample_n(1)%>%
   dplyr::select(lambda)%>%
-  dplyr::rename(mean_l = lambda)%>%
+  dplyr::mutate(mean_l = min(lambda, na.rm = TRUE),
+                sd_l = 0, n_l = 1)
+
+mdsur_half <- dt_all %>%
+  dplyr::summarise(mean_l = 0.5)%>%
   dplyr::mutate(sd_l = 0, n_l = 1)
 
 #generate trial data:
@@ -86,19 +89,20 @@ dt0 <- bin2mi::dt_p2(n = n_obs, pc = pc, pt = pt)
 
 #calculate ci and derive decision based on the full/obs/mi/sing cohort of MDs
 mdall_des  <- ci_sur(mdsur_all, dt0, type = 'all')
-mdobs_des  <- ci_sur(mdsur_obs, dt0, type = 'obs') 
+mdobs_des  <- ci_sur(mdsur_obs, dt0, type = 'obs')
 mdmi_des   <- ci_sur(mdsur_mi, dt0, type = 'mi')
-mdsing_des <- ci_sur(mdsur_sing, dt0, type = 'sing')
+mdsing_des <- ci_sur(mdsur_sing, dt0, type = 'sing min')
+mdhalf_des <- ci_sur(mdsur_half, dt0, type = 'sing half')
 
-ct_des <- bind_rows(mdall_des, mdobs_des, mdmi_des, mdsing_des)%>%
-  dplyr::mutate(sim_id = x)
+ct_des <- bind_rows(mdall_des, mdobs_des, mdmi_des, mdsing_des, mdhalf_des)%>%
+  dplyr::mutate(sim_id = 1)
 
 out <- list(ct_des)%>%
        purrr::set_names("ct_des")
      return(out)
-                       
-})
 
+# })
+out
 
 x2 <- x1%>%
   purrr::map_df(.f=function(x) x$ct_des, .id = 'sim')
@@ -109,5 +113,5 @@ sim_sum <- x2%>%
                    n_sim = n())%>%
   dplyr::mutate(pc = pc, pt = pt, n_obs = n_obs, cor_xl = cor_xl)
 
-saveRDS(sim_sum, )  
+saveRDS(sim_sum, )
 

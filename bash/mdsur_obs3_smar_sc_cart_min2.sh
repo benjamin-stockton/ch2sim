@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+cd ..
+
+# echo "Running pgms_simrun/mar/mdsur_obs3_smar_sc1_cart_min2.R"
+# Rscript "pgms_simrun/mar/mdsur_obs3_smar_sc1_cart_min2.R"
+# echo "Running pgms_simrun/mar/mdsur_obs3_smar_sc2_cart_min2.R"
+# Rscript "pgms_simrun/mar/mdsur_obs3_smar_sc2_cart_min2.R"
+# echo "Running pgms_simrun/mar/mdsur_obs3_smar_sc3_cart_min2.R"
+# Rscript "pgms_simrun/mar/mdsur_obs3_smar_sc3_cart_min2.R"
+# echo "Running pgms_simrun/mar/mdsur_obs3_smar_sc4_cart_min2.R"
+# Rscript "pgms_simrun/mar/mdsur_obs3_smar_sc4_cart_min2.R"
+# echo "Running pgms_simrun/mar/mdsur_obs3_smar_sc5_cart_min2.R"
+# Rscript "pgms_simrun/mar/mdsur_obs3_smar_sc5_cart_min2.R"
+# echo "Running pgms_simrun/mar/mdsur_obs3_smar_sc6_cart_min2.R"
+# Rscript "pgms_simrun/mar/mdsur_obs3_smar_sc6_cart_min2.R"
+# echo "Running pgms_simrun/mar/mdsur_obs3_smar_sc7_cart_min2.R"
+# Rscript "pgms_simrun/mar/mdsur_obs3_smar_sc7_cart_min2.R"
+# echo "Running pgms_simrun/mar/mdsur_obs3_smar_sc8_cart_min2.R"
+# Rscript "pgms_simrun/mar/mdsur_obs3_smar_sc8_cart_min2.R"
+# echo "Running pgms_simrun/mar/mdsur_obs3_smar_sc9_cart_min2.R"
+# Rscript "pgms_simrun/mar/mdsur_obs3_smar_sc9_cart_min2.R"
+# echo "Running pgms_simrun/mar/mdsur_obs3_smar_sc10_cart_min2.R"
+# Rscript "pgms_simrun/mar/mdsur_obs3_smar_sc10_cart_min2.R"
+echo "Running pgms_simrun/mar/mdsur_obs3_smar_sc11_cart_min2.R"
+Rscript "pgms_simrun/mar/mdsur_obs3_smar_sc11_cart_min2.R"
+echo "Running pgms_simrun/mar/mdsur_obs3_smar_sc12_cart_min2.R"
+Rscript "pgms_simrun/mar/mdsur_obs3_smar_sc12_cart_min2.R"
+
+echo "Done!"
